@@ -1,25 +1,46 @@
+import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React from 'react';
 class MyComponent extends React.Component {
     state = {
-        name: ""
+        firstName: "",
+        lastName: ""
     }
-    handleOnChangName = (event) => {
+    handleChangFirstName = (event) => {
         this.setState({
-            name: event.target.value
+            firstName: event.target.value
         })
     }
-    handleOnClick = () => {
-        alert(this.state.name);
+    handleChangLastName = (event) => {
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+    handleSubmit = (event) => {
+        event.preventDefault();// ngẵn không cho submit refresh lại trang
+        alert('get data success');
+        console.log('Data:', this.state);
+
     }
     render() {
+        console.log(this.state);
         return (
             <>
-                <div className='first'>
-                    <input value={this.state.name} type='text'
-                        onChange={(event) => this.handleOnChangName(event)} />
-                    My name is {this.state.name} and I am GOAT!!
-                </div>
-                <div className='second'><button onClick={() => this.handleOnClick()}>Click Here</button></div>
+                <form>
+                    <label htmlFor="fname">First name:</label><br />
+                    <input
+                        type="text"
+                        value={this.state.firstName}
+                        onChange={(event) => this.handleChangFirstName(event)} /><br />
+                    <label htmlFor="lname">Last name:</label><br />
+                    <input
+                        type="text"
+                        value={this.state.lastName}
+                        onChange={(event) => this.handleChangLastName(event)} /><br /><br />
+                    <input
+                        type="submit"
+                        value="Submit"
+                        onClick={(event) => this.handleSubmit(event)} />
+                </form>
             </>
         )
     }
