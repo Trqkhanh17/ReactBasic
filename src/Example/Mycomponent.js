@@ -1,5 +1,6 @@
 import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React from 'react';
+import ChildComponent from './ChildComponent';
 class MyComponent extends React.Component {
     state = {
         firstName: "",
@@ -16,7 +17,7 @@ class MyComponent extends React.Component {
         })
     }
     handleSubmit = (event) => {
-        event.preventDefault();// ngẵn không cho submit refresh lại trang
+        event.preventDefault();// ngăn không cho submit refresh lại trang
         alert('get data success');
         console.log('Data:', this.state);
 
@@ -41,6 +42,9 @@ class MyComponent extends React.Component {
                         value="Submit"
                         onClick={(event) => this.handleSubmit(event)} />
                 </form>
+                <ChildComponent name={'child one'} />
+                <ChildComponent name={'child two'} />
+                <ChildComponent name={'child three'} />
             </>
         )
     }
