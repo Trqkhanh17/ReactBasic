@@ -22,9 +22,28 @@ class ChildComponent extends React.Component {
 
     }
     render() {
+        console.log('<<CheckProps:', this.props);
+        // let name = this.props.name;
+        // let age = this.props.age;
+        // let school = this.props.school;
+        let { name, infor } = this.props;
+        let result;
         return (
             <>
-                <div>Child Component: {this.props.name}</div>
+                <div>Name - {name}</div>
+                <div className='job=lists'>
+                    {
+                        result = infor.map((item, index) => {
+                            return (
+                                <div key={item.id}>
+                                    {item.id} - {item.title} - {item.salary}
+                                </div>)
+                        })
+
+                    }
+                    {console.log('<<CheckArr:', result)}
+
+                </div>
             </>
         )
     }
