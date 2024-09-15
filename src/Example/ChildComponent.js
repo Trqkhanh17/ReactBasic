@@ -2,8 +2,7 @@ import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React from 'react';
 class ChildComponent extends React.Component {
     state = {
-        firstName: "",
-        lastName: ""
+        show: false,
     }
     handleChangFirstName = (event) => {
         this.setState({
@@ -21,29 +20,48 @@ class ChildComponent extends React.Component {
         console.log('Data:', this.state);
 
     }
+    handleShowHide = () => {
+        this.setState({
+            show: !this.state.show
+        })
+    }
     render() {
-        console.log('<<CheckProps:', this.props);
+        //console.log('<<CheckProps:', this.props);
         // let name = this.props.name;
         // let age = this.props.age;
         // let school = this.props.school;
         let { name, infor } = this.props;
+        let { show } = this.state;
+        let check = show === true ? 'show = true' : 'show = false';
+        console.log('<<check: ', check);
+
         let result;
         return (
             <>
-                <div>Name - {name}</div>
-                <div className='job=lists'>
-                    {
-                        result = infor.map((item, index) => {
-                            return (
-                                <div key={item.id}>
-                                    {item.id} - {item.title} - {item.salary}
-                                </div>)
-                        })
+                {show !== true ?
+                    <>
+                        <div><button onClick={() => this.handleShowHide()}>Show</button></div>
+                    </>
+                    :
+                    <>
+                        <div>Name - {name}</div>
+                        <div className='job=lists'>
+                            {
+                                result = infor.map((item, index) => {
+                                    if (item.salary >= 1000) {
+                                        return (
+                                            <div key={item.id}>
+                                                {item.id} - {item.title} - {item.salary} $
+                                            </div>)
+                                    }
+                                })
 
-                    }
-                    {console.log('<<CheckArr:', result)}
-
-                </div>
+                            }
+                            {/* {console.log('<<CheckArr:', result)} */}
+                        </div>
+                        <div><button onClick={() => this.handleShowHide()}>Hide</button></div>
+                    </>
+                }
             </>
         )
     }

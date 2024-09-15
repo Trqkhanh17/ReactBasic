@@ -9,12 +9,12 @@ class MyComponent extends React.Component {
             {
                 id: 1,
                 title: 'Developer',
-                salary: '$10000'
+                salary: '10000'
             },
             {
                 id: 2,
                 title: 'Tester',
-                salary: '$1000'
+                salary: '1000'
             },
         ]
     }
