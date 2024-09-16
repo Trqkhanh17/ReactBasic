@@ -1,6 +1,7 @@
 import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React from 'react';
 import ChildComponent from './ChildComponent';
+import AddComponent from './AddComponent';
 class MyComponent extends React.Component {
     state = {
         firstName: "",
@@ -54,6 +55,7 @@ class MyComponent extends React.Component {
                         onClick={(event) => this.handleSubmit(event)} />
                 </form>
                 <ChildComponent name={this.state.firstName + ' ' + this.state.lastName} infor={this.state.arrJobs} />
+                <AddComponent />
             </>
         )
     }
