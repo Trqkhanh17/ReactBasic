@@ -30,7 +30,7 @@ class ChildComponent extends React.Component {
         // let name = this.props.name;
         // let age = this.props.age;
         // let school = this.props.school;
-        let { name, infor } = this.props;
+        let { infor } = this.props;
         let { show } = this.state;
         let check = show === true ? 'show = true' : 'show = false';
         console.log('<<check: ', check);
@@ -44,7 +44,6 @@ class ChildComponent extends React.Component {
                     </>
                     :
                     <>
-                        <div>Name - {name}</div>
                         <div className='job=lists'>
                             {
                                 result = infor.map((item, index) => {
