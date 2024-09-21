@@ -16,7 +16,6 @@ class ChildComponent extends React.Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();// ngăn không cho submit refresh lại trang
-        alert('get data success');
         console.log('Data:', this.state);
 
     }
@@ -24,6 +23,9 @@ class ChildComponent extends React.Component {
         this.setState({
             show: !this.state.show
         })
+    }
+    handleOnClickDelete = (job) => {
+        this.props.deleteAJob(job);
     }
     render() {
         //console.log('<<CheckProps:', this.props);
@@ -33,8 +35,6 @@ class ChildComponent extends React.Component {
         let { infor } = this.props;
         let { show } = this.state;
         let check = show === true ? 'show = true' : 'show = false';
-        console.log('<<check: ', check);
-
         let result;
         return (
             <>
@@ -50,7 +50,8 @@ class ChildComponent extends React.Component {
                                     if (item.salary >= 1000) {
                                         return (
                                             <div key={item.id}>
-                                                {item.id} - {item.title} - {item.salary} $
+                                                {item.id} - {item.title} - {item.salary} $ <></>
+                                                <span onClick={() => this.handleOnClickDelete(item)}>X</span>
                                             </div>)
                                     }
                                 })
