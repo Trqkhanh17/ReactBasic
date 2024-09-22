@@ -1,23 +1,22 @@
 import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React from 'react';
+import './Demo.scss'
 class ChildComponent extends React.Component {
     state = {
         show: false,
     }
-    handleChangFirstName = (event) => {
-        this.setState({
-            firstName: event.target.value
-        })
-    }
-    handleChangLastName = (event) => {
-        this.setState({
-            lastName: event.target.value
-        })
-    }
+    // handleChangFirstName = (event) => {
+    //     this.setState({
+    //         firstName: event.target.value
+    //     })
+    // }
+    // handleChangLastName = (event) => {
+    //     this.setState({
+    //         lastName: event.target.value
+    //     })
+    // }
     handleSubmit = (event) => {
         event.preventDefault();// ngăn không cho submit refresh lại trang
-        console.log('Data:', this.state);
-
     }
     handleShowHide = () => {
         this.setState({
@@ -34,17 +33,16 @@ class ChildComponent extends React.Component {
         // let school = this.props.school;
         let { infor } = this.props;
         let { show } = this.state;
-        let check = show === true ? 'show = true' : 'show = false';
         let result;
         return (
             <>
                 {show !== true ?
                     <>
-                        <div><button onClick={() => this.handleShowHide()}>Show</button></div>
+                        <div><button className='Btn-Show' onClick={() => this.handleShowHide()}>Show</button></div>
                     </>
                     :
                     <>
-                        <div className='job=lists'>
+                        <div className='joblists'>
                             {
                                 result = infor.map((item, index) => {
                                     if (item.salary >= 1000) {
@@ -59,7 +57,7 @@ class ChildComponent extends React.Component {
                             }
                             {/* {console.log('<<CheckArr:', result)} */}
                         </div>
-                        <div><button onClick={() => this.handleShowHide()}>Hide</button></div>
+                        <div><button className='Btn-Hide' onClick={() => this.handleShowHide()}>Hide</button></div>
                     </>
                 }
             </>

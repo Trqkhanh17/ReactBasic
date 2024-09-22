@@ -1,6 +1,6 @@
 import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React from 'react';
-import ChildComponent from './ChildComponent';
+import ChildComponent from './childComponent';
 import AddComponent from './AddComponent';
 class MyComponent extends React.Component {
     state = {
@@ -30,6 +30,14 @@ class MyComponent extends React.Component {
         this.setState({
             arrJobs: currentJobs
         })
+    }
+    componentDidMount() {
+        console.log('<<RUN bid mount');
+
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log('prev State: ', prevState, 'prev update State: ', this.state);
+
     }
     render() {
         return (
