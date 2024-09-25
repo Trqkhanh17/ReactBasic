@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.scss';
 import MyComponent from '../Example/Mycomponent';
+import ListTodos from './Todos/ListTodos';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   return (
     <div className="App">
@@ -9,8 +12,16 @@ const App = () => {
         <p>
           Hế Lô Mấy Cưng
         </p>
-        <MyComponent />
+        {/* <MyComponent /> */}
+        <ListTodos />
       </header>
+
+      <ToastContainer
+        theme='colored'
+        position="top-right"
+        autoClose={3000}
+      />
+
     </div>
   );
 }

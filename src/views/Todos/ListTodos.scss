@@ -1,0 +1,28 @@
+.List-Todos-Container{
+    button{
+        cursor: pointer;
+    }
+    .Add-Todos{
+        .Btn-Add{
+            margin: 0 10px;
+        }
+    }
+    .List-Todos-Content{
+        width: 400px;
+        margin: 0 auto;
+        //border: solid red;
+        
+        .Todos-child{
+            .Btn-Edit{
+                 margin: 0 10px;
+            }
+            &:first-child{
+                border-top: 1px solid red;
+            }
+
+            height: 40px;
+            border-bottom: 1px solid red;
+            margin: 15px
+          }
+      }
+}
