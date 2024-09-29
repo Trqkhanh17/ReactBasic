@@ -12,6 +12,7 @@ import {
   Route,
   Link
 } from "react-router-dom"
+import ListUser from './Users/ListUser';
 const App = () => {
   return (
     <BrowserRouter>
@@ -23,13 +24,12 @@ const App = () => {
             <Route exact path='/' component={HomeCoponent} />
             <Route path='/todos' component={ListTodos} />
             <Route path='/about' component={MyComponent} />
+            <Route path='/user' component={ListUser} />
           </Switch>
         </header>
 
         <ToastContainer
           theme='colored'
-          position="top-right"
-          autoClose={3000}
         />
 
       </div>

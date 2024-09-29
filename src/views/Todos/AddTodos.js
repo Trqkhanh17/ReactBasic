@@ -30,11 +30,10 @@ class AddTodos extends React.Component {
     render() {
         let { title } = this.state;
         return (
-            <><div className="Add-Todos">
+            <div className="Add-Todos">
                 <input type="text" value={title} onChange={(event) => this.handleOnChangeTitle(event)} />
                 <button type="button" className="Btn-Add" onClick={() => this.handleOnClickAdd()}>Add</button>
             </div>
-            </>
         )
     }
 }
