@@ -1,0 +1,19 @@
+.text-gradient {
+    font-weight: bold;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, purple);
+    background-clip: text; /* Thuộc tính chuẩn */
+    -webkit-background-clip: text; /* Thuộc tính với tiền tố nhà cung cấp */
+    color: transparent;
+    background-size: 200% 100%;
+    animation: gradient-animation 3s infinite;
+}
+
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

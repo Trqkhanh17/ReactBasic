@@ -19,7 +19,7 @@ const App = () => {
       <div className="App">
         <header className="App-header">
           <NavComponent />
-          <img src={logo} className="App-logo" alt="logo" />
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <Switch>
             <Route exact path='/' component={HomeCoponent} />
             <Route path='/todos' component={ListTodos} />

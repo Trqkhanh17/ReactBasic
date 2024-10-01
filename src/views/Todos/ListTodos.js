@@ -3,6 +3,7 @@ import './ListTodos.scss';
 import AddTodos from './AddTodos';
 import { toast } from 'react-toastify';
 import Color from "../HOC/color";
+import logo from '../../assets/images/logochanel.jpg'
 class ListTodos extends React.Component {
     state = {
         ListTodos: [
@@ -63,6 +64,7 @@ class ListTodos extends React.Component {
 
         return (
             <div className="List-Todos-Container">
+                <img src={logo} />
                 <p>Todos App</p>
                 <AddTodos addNewTodos={this.addNewTodos} />
                 <div className="List-Todos-Content">

@@ -1,6 +1,5 @@
 import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React from 'react';
-import './Demo.scss'
 class ChildComponent extends React.Component {
     state = {
         show: false,
